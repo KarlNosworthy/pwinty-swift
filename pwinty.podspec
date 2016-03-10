@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Pwinty"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = ""
   s.description  = ""
   s.homepage     = "https://github.com/karlnosworthy/pwinty_swift"

@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		19788B90476F229B345E8C5D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282983D3EC1FED6522F3E567 /* Pods.framework */; };
+		CB6A9B921C917A22003BC3A3 /* Pwinty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B911C917A22003BC3A3 /* Pwinty.swift */; };
+		CB6A9B941C917A63003BC3A3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B931C917A63003BC3A3 /* Order.swift */; };
+		CB6A9B961C917DE2003BC3A3 /* ShippingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B951C917DE2003BC3A3 /* ShippingInfo.swift */; };
+		CB6A9B981C917E1D003BC3A3 /* Shipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B971C917E1D003BC3A3 /* Shipment.swift */; };
+		CB6A9B9A1C91A3C7003BC3A3 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B991C91A3C7003BC3A3 /* Photo.swift */; };
+		CB6A9B9C1C91A782003BC3A3 /* Catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B9B1C91A782003BC3A3 /* Catalogue.swift */; };
+		CB6A9B9E1C91EF77003BC3A3 /* ShippingRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B9D1C91EF77003BC3A3 /* ShippingRate.swift */; };
+		CB6A9BA01C91F169003BC3A3 /* CatalogueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B9F1C91F169003BC3A3 /* CatalogueItem.swift */; };
+		CB6A9BA21C91F6B6003BC3A3 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9BA11C91F6B6003BC3A3 /* Country.swift */; };
 		CBB9B9741C916F070061616D /* Pwinty.h in Headers */ = {isa = PBXBuildFile; fileRef = CBB9B9721C916F070061616D /* Pwinty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CBE4EBD11C9162EA0016300F /* Pwinty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE4EBC61C9162EA0016300F /* Pwinty.framework */; };
 		CBE4EBD61C9162EA0016300F /* PwintyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE4EBD51C9162EA0016300F /* PwintyTests.swift */; };
@@ -26,6 +35,15 @@
 /* Begin PBXFileReference section */
 		282983D3EC1FED6522F3E567 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CA43698504292C8325B6295 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CB6A9B911C917A22003BC3A3 /* Pwinty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pwinty.swift; sourceTree = "<group>"; };
+		CB6A9B931C917A63003BC3A3 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		CB6A9B951C917DE2003BC3A3 /* ShippingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingInfo.swift; sourceTree = "<group>"; };
+		CB6A9B971C917E1D003BC3A3 /* Shipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shipment.swift; sourceTree = "<group>"; };
+		CB6A9B991C91A3C7003BC3A3 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		CB6A9B9B1C91A782003BC3A3 /* Catalogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catalogue.swift; sourceTree = "<group>"; };
+		CB6A9B9D1C91EF77003BC3A3 /* ShippingRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingRate.swift; sourceTree = "<group>"; };
+		CB6A9B9F1C91F169003BC3A3 /* CatalogueItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogueItem.swift; sourceTree = "<group>"; };
+		CB6A9BA11C91F6B6003BC3A3 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		CBB9B9711C916F070061616D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBB9B9721C916F070061616D /* Pwinty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pwinty.h; sourceTree = "<group>"; };
 		CBE4EBC61C9162EA0016300F /* Pwinty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pwinty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,11 +90,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB6A9B901C917995003BC3A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB6A9B9B1C91A782003BC3A3 /* Catalogue.swift */,
+				CB6A9B9F1C91F169003BC3A3 /* CatalogueItem.swift */,
+				CB6A9BA11C91F6B6003BC3A3 /* Country.swift */,
+				CB6A9B931C917A63003BC3A3 /* Order.swift */,
+				CB6A9B991C91A3C7003BC3A3 /* Photo.swift */,
+				CB6A9B971C917E1D003BC3A3 /* Shipment.swift */,
+				CB6A9B951C917DE2003BC3A3 /* ShippingInfo.swift */,
+				CB6A9B9D1C91EF77003BC3A3 /* ShippingRate.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		CBB9B9701C916F070061616D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				CB6A9B901C917995003BC3A3 /* Model */,
 				CBB9B9711C916F070061616D /* Info.plist */,
 				CBB9B9721C916F070061616D /* Pwinty.h */,
+				CB6A9B911C917A22003BC3A3 /* Pwinty.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -254,6 +289,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB6A9B941C917A63003BC3A3 /* Order.swift in Sources */,
+				CB6A9BA21C91F6B6003BC3A3 /* Country.swift in Sources */,
+				CB6A9B981C917E1D003BC3A3 /* Shipment.swift in Sources */,
+				CB6A9BA01C91F169003BC3A3 /* CatalogueItem.swift in Sources */,
+				CB6A9B921C917A22003BC3A3 /* Pwinty.swift in Sources */,
+				CB6A9B961C917DE2003BC3A3 /* ShippingInfo.swift in Sources */,
+				CB6A9B9A1C91A3C7003BC3A3 /* Photo.swift in Sources */,
+				CB6A9B9E1C91EF77003BC3A3 /* ShippingRate.swift in Sources */,
+				CB6A9B9C1C91A782003BC3A3 /* Catalogue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F01F52ACB420B7DACCE4D9D8 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -380,6 +425,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.karlnosworthy.Pwinty;
 				PRODUCT_NAME = Pwinty;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -388,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4CA43698504292C8325B6295 /* Pods.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

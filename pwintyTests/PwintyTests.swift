@@ -9,28 +9,65 @@
 import XCTest
 @testable import Pwinty
 
+
 class PwintyTests: XCTestCase {
+    
+    let merchantId = "";
+    let apiKey = "";
+    
+    
+    var pwinty:Pwinty?
+    
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        pwinty = Pwinty(merchantId:merchantId,
+                                 apiKey:apiKey,
+                           usingSandbox:true)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        pwinty = nil
     }
+
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+    func testGetCountries() {
+        
+        let readyExpectation = expectationWithDescription("ready")
+        
+        pwinty!.getCountries { (error, countries) -> Void in
+            
+            XCTAssertNil(error)
+            XCTAssertNotNil(countries)
+            XCTAssertEqual(243, countries!.count)
+        
+            readyExpectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(15) { error in
+            XCTAssertNil(error, "Error")
         }
     }
     
+    
+    func testRequestGBProQualityCatalogue() {
+        
+        let readyExpectation = expectationWithDescription("ready")
+        
+        pwinty!.getCatalogue("GB", qualityLevel: QualityLevel.Pro, completionHandler: {
+            (error, catalogue) -> Void in
+            
+            XCTAssertNotNil(catalogue)
+            XCTAssertEqual(catalogue!.qualityLevel, QualityLevel.Pro)
+            XCTAssertEqual(catalogue!.countryCode, "GB")
+            
+            readyExpectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(15) { error in
+            XCTAssertNil(error, "Error")
+        }
+    }
 }
