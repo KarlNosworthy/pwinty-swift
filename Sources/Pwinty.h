@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for pwinty.
+//! Project version number for Pwinty.
 FOUNDATION_EXPORT double PwintyVersionNumber;
 
-//! Project version string for pwinty.
+//! Project version string for Pwinty.
 FOUNDATION_EXPORT const unsigned char PwintyVersionString[];
 
 

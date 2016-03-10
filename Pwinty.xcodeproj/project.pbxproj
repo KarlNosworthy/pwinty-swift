@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19788B90476F229B345E8C5D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282983D3EC1FED6522F3E567 /* Pods.framework */; };
-		CBB9B9731C916F070061616D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CBB9B9711C916F070061616D /* Info.plist */; };
-		CBB9B9741C916F070061616D /* Pwinty.h in Headers */ = {isa = PBXBuildFile; fileRef = CBB9B9721C916F070061616D /* Pwinty.h */; };
+		CBB9B9741C916F070061616D /* Pwinty.h in Headers */ = {isa = PBXBuildFile; fileRef = CBB9B9721C916F070061616D /* Pwinty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CBE4EBD11C9162EA0016300F /* Pwinty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE4EBC61C9162EA0016300F /* Pwinty.framework */; };
 		CBE4EBD61C9162EA0016300F /* PwintyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE4EBD51C9162EA0016300F /* PwintyTests.swift */; };
 /* End PBXBuildFile section */
@@ -31,7 +30,7 @@
 		CBB9B9721C916F070061616D /* Pwinty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pwinty.h; sourceTree = "<group>"; };
 		CBE4EBC61C9162EA0016300F /* Pwinty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pwinty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE4EBD01C9162EA0016300F /* PwintyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PwintyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBE4EBD51C9162EA0016300F /* PwintyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwintyTests.swift; sourceTree = "<group>"; };
+		CBE4EBD51C9162EA0016300F /* PwintyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PwintyTests.swift; path = PwintyTests/PwintyTests.swift; sourceTree = SOURCE_ROOT; };
 		CBE4EBD71C9162EA0016300F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F01F52ACB420B7DACCE4D9D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,7 +204,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBB9B9731C916F070061616D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -357,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -382,6 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.karlnosworthy.Pwinty;
 				PRODUCT_NAME = Pwinty;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -400,13 +399,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.karlnosworthy.Pwinty;
 				PRODUCT_NAME = Pwinty;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
 		CBE4EBDE1C9162EA0016300F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = pwintyTests/Info.plist;
+				INFOPLIST_FILE = PwintyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karlnosworthy.PwintyTests;
 				PRODUCT_NAME = PwintyTests;
@@ -416,7 +416,7 @@
 		CBE4EBDF1C9162EA0016300F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = pwintyTests/Info.plist;
+				INFOPLIST_FILE = PwintyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karlnosworthy.PwintyTests;
 				PRODUCT_NAME = PwintyTests;

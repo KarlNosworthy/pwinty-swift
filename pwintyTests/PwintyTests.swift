@@ -1,6 +1,6 @@
 //
-//  pwintyTests.swift
-//  pwintyTests
+//  PwintyTests.swift
+//  PwintyTests
 //
 //  Created by Karl Nosworthy on 10/03/2016.
 //  Copyright © 2016 Karl Nosworthy. All rights reserved.
