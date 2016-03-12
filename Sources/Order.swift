@@ -9,28 +9,50 @@
 import Foundation
 import Gloss
 
-
-
 public struct Order : Decodable {
     
-    var orderId: Int?
+    public private(set) var orderId: Int?
     var recipientName : String?
     var address1 : String?
     var address2 : String?
     var addressTownOrCity : String?
     var stateOrCounty : String?
     var postalOrZipCode : String?
-    // country code
-    // destination country code
+    var countryCode : String?
+    var destinationCountryCode : String?
     var price:Int?
     var status:OrderStatus?
-    var useTrackedShipping : Bool
     var shippingInfo : ShippingInfo?
-    // payment
+    var payment:PaymentType?
     var paymentUrl : String?
     var qualityLevel : QualityLevel?
     var photos = [Photo]()
-    var errorMessage : String?
+    
+    
+    public init(countryCode:String, destinationCountryCode:String, qualityLevel:QualityLevel) {
+        self.countryCode = countryCode
+        self.destinationCountryCode = destinationCountryCode
+        self.qualityLevel = qualityLevel
+    }
+
+/*
+    public Order(Pwinty pwinty, CountryCode labCountry,
+    CountryCode destinationCountry, QualityLevel quality,
+    boolean useTrackedShipping) {
+    this.pwinty = pwinty;
+    this.countryCode = labCountry;
+    this.destinationCountryCode = destinationCountry;
+    this.qualityLevel = quality;
+    if (destinationCountry == CountryCode.IE) {
+    this.postalOrZipCode = "-"; // default postcode to dash for IE.
+    // Pwinty's bug really...
+    }
+    this.useTrackedShipping = useTrackedShipping;
+    Order order = pwinty.createOrder(this, useTrackedShipping);
+    overwriteThisOrderWithGivenOrder(order);
+    }
+*/
+    
     
     
     public init?(json: JSON) {
@@ -41,17 +63,14 @@ public struct Order : Decodable {
         self.addressTownOrCity = "addressTownOrCity" <~~ json
         self.stateOrCounty = "stateOrCounty" <~~ json
         self.postalOrZipCode = "postalOrZipCode" <~~ json
-        // country code
-        // destination country code
+        self.countryCode = "countryCode" <~~ json
+        self.destinationCountryCode = "destinationCountryCode" <~~ json
         self.price = "price" <~~ json
         self.status = "status" <~~ json
         self.shippingInfo = "shippingInfo" <~~ json
-        // payment
+        self.payment = "payment" <~~ json
         self.paymentUrl = "paymentUrl" <~~ json
-        // quality level
-        // photos
-        //
-        // temporarily hard-coded until bools from JSON is sorted
-        self.useTrackedShipping = false;
+        self.qualityLevel = "qualityLevel" <~~ json
+        self.photos = ("photos" <~~ json)!
     }
 }

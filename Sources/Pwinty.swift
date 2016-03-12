@@ -11,29 +11,6 @@ import Alamofire
 import Gloss
 
 
-public enum PaymentType : String {
-    case InvoiceMe = "InvoiceMe"
-    case InvoiceRecipient = "InvoiceRecipient"
-}
-
-public enum QualityLevel : String {
-    case Pro = "Pro"
-    case Standard = "Standard"
-}
-
-public enum OrderStatus : String {
-    case NotYetSubmitted = "NotYetSubmitted"
-    case Submitted = "Submitted"
-    case AwaitingPayment = "AwaitingPayment"
-    case Complete = "Complete"
-    case Cancelled = "Cancelled"
-}
-
-
-
-//public enum OrderPaymentType
-
-
 public class Pwinty {
     
     let usingSandbox : Bool?
@@ -121,6 +98,7 @@ public class Pwinty {
             }
         }
     }
+
     
     public func getOrder(orderId:Int, completionHandler:(error:NSError?, order:Order?) -> Void) {
         
@@ -140,21 +118,63 @@ public class Pwinty {
         }
     }
     
+    
+    public func validateOrder(orderId:Int, completionHandler:(error:NSError?, validationResult:OrderValidationResult?) -> Void) {
+        
+        let validateOrderRequestUrl = String(format: "%@/Orders/%ld/SubmissionStatus", getApiRequestUrl(), orderId)
+        
+        Alamofire.request(.GET, validateOrderRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
+            
+            do {
+                let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                
+                let validationResult = OrderValidationResult(json:deserialisedJSON!)
+                
+                completionHandler(error:JSON.result.error, validationResult:validationResult)
+            } catch let error as NSError {
+                completionHandler(error:error, validationResult: nil)
+            }
+        }
+    }
+    
+    
+
 /*
-    public Order getOrder(int orderId) {
-    ClientResponse response = webResource.path("Orders/" + orderId)
+    Order createOrder(Order newOrder, boolean useTrackedShipping) {
+    Form form = createOrderForm(newOrder, useTrackedShipping);
+    ClientResponse response = webResource.path("Orders")
+    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
     .accept(MediaType.APPLICATION_JSON_TYPE)
     .header("X-Pwinty-MerchantId", merchantId)
     .header("X-Pwinty-REST-API-Key", apiKey)
-    .get(ClientResponse.class);
+    .post(ClientResponse.class, form);
     
-    Order order = createReponse(response, Order.class);
-    order.setPwinty(this);
-    return order;
+    Order createdOrder = createReponse(response, Order.class);
+    createdOrder.setPwinty(this);
+    
+    for (Photo photo : newOrder.getPhotos()) {
+    createdOrder.addPhoto(photo.getUrl(), photo.getType(),
+    photo.getCopies(), photo.getSizing());
+    }
+    return createdOrder;
     }*/
     
     
+    public func createOrder(orderDetails:Order, useTrackedShipping:Bool) -> Order {
+        
+        // create order parameters (form)
+        // post order to service endpoint
+        // process response
+        // move photos over to response order
+        // return response order
+
+        let order = Order(json: ["":""])
+            
+        
+        return order!
+    }
     
+    // public func submitOrder ... either with order object or with by id
     
     
     
@@ -171,4 +191,22 @@ public class Pwinty {
                  "X-Pwinty-MerchantId" : self.merchantId!,
                  "X-Pwinty-REST-API-Key" : self.apiKey! ]
     }
+}
+
+public enum PaymentType : String {
+    case InvoiceMe = "InvoiceMe"
+    case InvoiceRecipient = "InvoiceRecipient"
+}
+
+public enum QualityLevel : String {
+    case Pro = "Pro"
+    case Standard = "Standard"
+}
+
+public enum OrderStatus : String {
+    case NotYetSubmitted = "NotYetSubmitted"
+    case Submitted = "Submitted"
+    case AwaitingPayment = "AwaitingPayment"
+    case Complete = "Complete"
+    case Cancelled = "Cancelled"
 }
