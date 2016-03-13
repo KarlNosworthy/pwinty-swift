@@ -88,10 +88,14 @@ public class Pwinty {
                 if (response.result.error != nil) {
                     completionHandler(error:response.result.error, orders:nil)
                 } else {
-                    let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions())
-                    let orders = [Order].fromJSONArray(deserialisedJSON as! [JSON])
-                    
-                    completionHandler(error:response.result.error, orders:orders);
+                    if (response.response?.statusCode == 200) {
+                        let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions())
+                        let orders = [Order].fromJSONArray(deserialisedJSON as! [JSON])
+                        
+                        completionHandler(error:response.result.error, orders:orders);
+                    } else {
+                        completionHandler(error:response.result.error, orders:nil);
+                    }
                 }
             } catch let error as NSError {
                 completionHandler(error:error, orders: nil);
@@ -138,6 +142,53 @@ public class Pwinty {
     }
     
     
+    public func updateOrder(orderId:Int, recipientName:String = "", address1:String = "", address2:String = "",
+        addressTownOrCity:String = "", stateOrCounty:String = "", postalOrZipCode:String = "", completionHandler:(error:NSError?, order:Order?) -> Void) {
+            
+        var parameters = [String:AnyObject]()
+            
+        if (!recipientName.isEmpty) {
+            parameters["recipientName"] = recipientName
+        }
+        
+        if (!address1.isEmpty) {
+            parameters["address1"] = address1
+        }
+            
+        if (!address2.isEmpty) {
+            parameters["address2"] = address2
+        }
+            
+        if (!addressTownOrCity.isEmpty) {
+            parameters["addressTownOrCity"] = addressTownOrCity
+        }
+            
+        if (!stateOrCounty.isEmpty) {
+            parameters["stateOrCounty"] = stateOrCounty
+        }
+        
+        if (!postalOrZipCode.isEmpty) {
+            parameters["postalOrZipCode"] = postalOrZipCode
+        }
+            
+        let updateOrderRequestUrl = String(format: "%@/Orders/%ld", getApiRequestUrl(), orderId)
+            
+        Alamofire.request(.PUT, updateOrderRequestUrl, parameters: parameters, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
+            do {
+                let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                
+                let order = Order(json: deserialisedJSON!)
+                
+                completionHandler(error: nil, order: order)
+                
+            } catch let error as NSError {
+                completionHandler(error:error, order: nil)
+            }
+        }
+    }
+    
+    
+    
 
 /*
     Order createOrder(Order newOrder, boolean useTrackedShipping) {
@@ -176,6 +227,144 @@ public class Pwinty {
     
     // public func submitOrder ... either with order object or with by id
     
+    //
+    // Order Issues
+    //
+    
+    public func createOrderIssue(orderId:Int, issueType:IssueType, issueDetail:String, requiredAction:IssueActionType, actionDetail:String = "", affectedImages:[Int] = [], completionHandler:(error:ErrorType?, orderIssue:OrderIssue?) -> Void) {
+        
+        let createOrderIssueRequestUrl = String(format: "%@/Orders/%@/Issues", getApiRequestUrl(), orderId)
+        
+        var parameters = [String:AnyObject]()
+            parameters["orderId"] = orderId
+            parameters["issue"] = issueType.rawValue
+            parameters["action"] = requiredAction.rawValue
+        
+        if (!issueDetail.isEmpty) {
+            parameters["issueDetail"] = issueDetail
+        }
+        
+        if (!actionDetail.isEmpty) {
+            parameters["actionDetail"] = actionDetail
+        }
+        
+        if (affectedImages.count > 0) { // include the image id's
+            parameters["affectedImages"] = affectedImages
+        }
+        
+        Alamofire.request(.POST, createOrderIssueRequestUrl, parameters:parameters, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(response) in
+            
+            do {
+                if (response.result.error != nil) {
+                    completionHandler(error:response.result.error, orderIssue:nil)
+                } else {
+                    if (response.response?.statusCode == 200) {
+                        
+                        let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                        
+                        let orderIssue = OrderIssue(json:deserialisedJSON!)
+                        
+                        completionHandler(error:response.result.error, orderIssue:orderIssue)
+                    } else {
+                        completionHandler(error:response.result.error, orderIssue:nil)
+                    }
+                }
+            } catch {
+                completionHandler(error:error, orderIssue:nil)
+            }
+        }
+    }
+    
+    
+    public func getOrderIssues(orderId:Int, completionHandler:(error:ErrorType?, issues:[OrderIssue]?) -> Void) {
+        
+        let orderIssuesRequestUrl = String(format: "%@/Orders/%@/Issues", getApiRequestUrl(), orderId)
+        
+        Alamofire.request(.GET, orderIssuesRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(response) in
+            
+            do {
+                if (response.result.error != nil) {
+                    completionHandler(error:response.result.error, issues:nil)
+                } else {
+                    if (response.response?.statusCode == 200) {
+                        let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions())
+                        let issues = [OrderIssue].fromJSONArray(deserialisedJSON as! [JSON])
+                        
+                        completionHandler(error:response.result.error, issues:issues);
+                    } else {
+                        completionHandler(error:response.result.error, issues:nil);
+                    }
+                }
+            } catch {
+                completionHandler(error:error, issues:nil);
+            }
+        }
+    }
+    
+    public func getOrderIssue(orderId:Int, issueId:Int, completionHandler:(error:NSError?, orderIssue:OrderIssue?) -> Void) {
+        
+        let orderIssueRequestUrl = String(format: "%@/Orders/%@/Issues/%@", getApiRequestUrl(), orderId, issueId)
+        
+        Alamofire.request(.GET, orderIssueRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
+            
+            do {
+                let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                
+                let orderIssue = OrderIssue(json: deserialisedJSON!)
+                
+                completionHandler(error:JSON.result.error, orderIssue:orderIssue)
+            } catch let error as NSError {
+                completionHandler(error:error, orderIssue: nil)
+            }
+        }
+    }
+    
+    
+    public func commentOnOrderIssue(orderId:Int, issueId:Int, comment:String, completionHandler:(error:NSError?, updatedOrderIssue:OrderIssue?) -> Void) {
+        
+        let orderIssueCommentUrl = String(format: "%@/Orders/%@/Issues/%@", getApiRequestUrl(), orderId, issueId)
+        
+        let parameters = ["comment" : comment]
+        
+        Alamofire.request(.PUT, orderIssueCommentUrl, parameters:parameters, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
+            
+            do {
+                let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                
+                let orderIssue = OrderIssue(json: deserialisedJSON!)
+                
+                completionHandler(error:JSON.result.error, updatedOrderIssue:orderIssue)
+            } catch let error as NSError {
+                completionHandler(error:error, updatedOrderIssue: nil)
+            }
+        }
+    }
+    
+    
+    public func cancelOrderIssue(orderId:Int, issueId:Int, comment:String = "", completionHandler:(error:NSError?, updatedOrderIssue:OrderIssue?) -> Void) {
+        
+        let orderIssueCancelUrl = String(format: "%@/Orders/%@/Issues/%@", getApiRequestUrl(), orderId, issueId)
+
+        var parameters = [String:AnyObject]()
+            parameters[""] = "Cancelled"
+        
+        if (!comment.isEmpty) {
+            parameters["comment"] = comment
+        }
+        
+        Alamofire.request(.PUT, orderIssueCancelUrl, parameters:parameters, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
+            
+            do {
+                let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                
+                let orderIssue = OrderIssue(json: deserialisedJSON!)
+                
+                completionHandler(error:JSON.result.error, updatedOrderIssue:orderIssue)
+            } catch let error as NSError {
+                completionHandler(error:error, updatedOrderIssue: nil)
+            }
+        }
+    }
     
     
     private func getApiRequestUrl() -> String {

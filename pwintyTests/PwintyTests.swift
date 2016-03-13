@@ -34,7 +34,6 @@ class PwintyTests: XCTestCase {
 
     
     func testGetCountries() {
-        
         let readyExpectation = expectationWithDescription("ready")
         
         pwinty!.getCountries { (error, countries) -> Void in
@@ -66,6 +65,22 @@ class PwintyTests: XCTestCase {
             readyExpectation.fulfill()
         })
         
+        waitForExpectationsWithTimeout(15) { error in
+            XCTAssertNil(error, "Error")
+        }
+    }
+    
+    func testGetOrders() {
+        
+        let readyExpectation = expectationWithDescription("ready")
+        
+        pwinty?.getOrders({ (error, orders) -> Void in
+            XCTAssertNil(error)
+            XCTAssertNil(orders)
+            
+            readyExpectation.fulfill()
+        })
+    
         waitForExpectationsWithTimeout(15) { error in
             XCTAssertNil(error, "Error")
         }

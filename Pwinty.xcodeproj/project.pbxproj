@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19788B90476F229B345E8C5D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282983D3EC1FED6522F3E567 /* Pods.framework */; };
+		CB3707371C95CB5600314577 /* OrderIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3707361C95CB5600314577 /* OrderIssue.swift */; };
 		CB6A9B921C917A22003BC3A3 /* Pwinty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B911C917A22003BC3A3 /* Pwinty.swift */; };
 		CB6A9B941C917A63003BC3A3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B931C917A63003BC3A3 /* Order.swift */; };
 		CB6A9B961C917DE2003BC3A3 /* ShippingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B951C917DE2003BC3A3 /* ShippingInfo.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		282983D3EC1FED6522F3E567 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CA43698504292C8325B6295 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CB3707361C95CB5600314577 /* OrderIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderIssue.swift; sourceTree = "<group>"; };
 		CB6A9B911C917A22003BC3A3 /* Pwinty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pwinty.swift; sourceTree = "<group>"; };
 		CB6A9B931C917A63003BC3A3 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		CB6A9B951C917DE2003BC3A3 /* ShippingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingInfo.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				CB6A9B9F1C91F169003BC3A3 /* CatalogueItem.swift */,
 				CB6A9BA11C91F6B6003BC3A3 /* Country.swift */,
 				CB6A9B931C917A63003BC3A3 /* Order.swift */,
+				CB3707361C95CB5600314577 /* OrderIssue.swift */,
 				CB7965561C945D5A0020857E /* OrderValidationResult.swift */,
 				CB6A9B991C91A3C7003BC3A3 /* Photo.swift */,
 				CB7965581C945E840020857E /* PhotoError.swift */,
@@ -299,6 +302,7 @@
 				CB6A9B941C917A63003BC3A3 /* Order.swift in Sources */,
 				CB6A9BA21C91F6B6003BC3A3 /* Country.swift in Sources */,
 				CB6A9B981C917E1D003BC3A3 /* Shipment.swift in Sources */,
+				CB3707371C95CB5600314577 /* OrderIssue.swift in Sources */,
 				CB6A9BA01C91F169003BC3A3 /* CatalogueItem.swift in Sources */,
 				CB6A9B921C917A22003BC3A3 /* Pwinty.swift in Sources */,
 				CB6A9B961C917DE2003BC3A3 /* ShippingInfo.swift in Sources */,
