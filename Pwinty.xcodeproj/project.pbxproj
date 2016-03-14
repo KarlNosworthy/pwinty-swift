@@ -21,6 +21,8 @@
 		CB7965571C945D5A0020857E /* OrderValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7965561C945D5A0020857E /* OrderValidationResult.swift */; };
 		CB7965591C945E840020857E /* PhotoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7965581C945E840020857E /* PhotoError.swift */; };
 		CBB9B9741C916F070061616D /* Pwinty.h in Headers */ = {isa = PBXBuildFile; fileRef = CBB9B9721C916F070061616D /* Pwinty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CBE05DC11C96C0CA00D73922 /* OrderIssuesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE05DC01C96C0CA00D73922 /* OrderIssuesResponse.swift */; };
+		CBE05DC31C96E11A00D73922 /* OrderSubmitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE05DC21C96E11A00D73922 /* OrderSubmitResponse.swift */; };
 		CBE4EBD11C9162EA0016300F /* Pwinty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE4EBC61C9162EA0016300F /* Pwinty.framework */; };
 		CBE4EBD61C9162EA0016300F /* PwintyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE4EBD51C9162EA0016300F /* PwintyTests.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		CB7965581C945E840020857E /* PhotoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoError.swift; sourceTree = "<group>"; };
 		CBB9B9711C916F070061616D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBB9B9721C916F070061616D /* Pwinty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pwinty.h; sourceTree = "<group>"; };
+		CBE05DC01C96C0CA00D73922 /* OrderIssuesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderIssuesResponse.swift; sourceTree = "<group>"; };
+		CBE05DC21C96E11A00D73922 /* OrderSubmitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSubmitResponse.swift; sourceTree = "<group>"; };
 		CBE4EBC61C9162EA0016300F /* Pwinty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pwinty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE4EBD01C9162EA0016300F /* PwintyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PwintyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE4EBD51C9162EA0016300F /* PwintyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PwintyTests.swift; path = PwintyTests/PwintyTests.swift; sourceTree = SOURCE_ROOT; };
@@ -99,6 +103,7 @@
 		CB6A9B901C917995003BC3A3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CBE05DBF1C96C0B200D73922 /* Internal */,
 				CB6A9B9B1C91A782003BC3A3 /* Catalogue.swift */,
 				CB6A9B9F1C91F169003BC3A3 /* CatalogueItem.swift */,
 				CB6A9BA11C91F6B6003BC3A3 /* Country.swift */,
@@ -123,6 +128,15 @@
 				CB6A9B911C917A22003BC3A3 /* Pwinty.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		CBE05DBF1C96C0B200D73922 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				CBE05DC01C96C0CA00D73922 /* OrderIssuesResponse.swift */,
+				CBE05DC21C96E11A00D73922 /* OrderSubmitResponse.swift */,
+			);
+			name = Internal;
 			sourceTree = "<group>";
 		};
 		CBE4EBBC1C9162EA0016300F = {
@@ -303,11 +317,13 @@
 				CB6A9BA21C91F6B6003BC3A3 /* Country.swift in Sources */,
 				CB6A9B981C917E1D003BC3A3 /* Shipment.swift in Sources */,
 				CB3707371C95CB5600314577 /* OrderIssue.swift in Sources */,
+				CBE05DC11C96C0CA00D73922 /* OrderIssuesResponse.swift in Sources */,
 				CB6A9BA01C91F169003BC3A3 /* CatalogueItem.swift in Sources */,
 				CB6A9B921C917A22003BC3A3 /* Pwinty.swift in Sources */,
 				CB6A9B961C917DE2003BC3A3 /* ShippingInfo.swift in Sources */,
 				CB6A9B9A1C91A3C7003BC3A3 /* Photo.swift in Sources */,
 				CB6A9B9E1C91EF77003BC3A3 /* ShippingRate.swift in Sources */,
+				CBE05DC31C96E11A00D73922 /* OrderSubmitResponse.swift in Sources */,
 				CB7965571C945D5A0020857E /* OrderValidationResult.swift in Sources */,
 				CB6A9B9C1C91A782003BC3A3 /* Catalogue.swift in Sources */,
 			);

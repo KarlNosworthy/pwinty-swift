@@ -26,7 +26,7 @@ public struct Order : Decodable {
     var payment:PaymentType?
     var paymentUrl : String?
     var qualityLevel : QualityLevel?
-    var photos = [Photo]()
+//    var photos = [Photo]()
     
     
     public init(countryCode:String, destinationCountryCode:String, qualityLevel:QualityLevel) {
@@ -35,26 +35,6 @@ public struct Order : Decodable {
         self.qualityLevel = qualityLevel
     }
 
-/*
-    public Order(Pwinty pwinty, CountryCode labCountry,
-    CountryCode destinationCountry, QualityLevel quality,
-    boolean useTrackedShipping) {
-    this.pwinty = pwinty;
-    this.countryCode = labCountry;
-    this.destinationCountryCode = destinationCountry;
-    this.qualityLevel = quality;
-    if (destinationCountry == CountryCode.IE) {
-    this.postalOrZipCode = "-"; // default postcode to dash for IE.
-    // Pwinty's bug really...
-    }
-    this.useTrackedShipping = useTrackedShipping;
-    Order order = pwinty.createOrder(this, useTrackedShipping);
-    overwriteThisOrderWithGivenOrder(order);
-    }
-*/
-    
-    
-    
     public init?(json: JSON) {
         self.orderId = "id" <~~ json
         self.recipientName = "recipientName" <~~ json
@@ -71,6 +51,7 @@ public struct Order : Decodable {
         self.payment = "payment" <~~ json
         self.paymentUrl = "paymentUrl" <~~ json
         self.qualityLevel = "qualityLevel" <~~ json
-        self.photos = ("photos" <~~ json)!
+        
+//        self.photos = ("photos" <~~ json)!
     }
 }

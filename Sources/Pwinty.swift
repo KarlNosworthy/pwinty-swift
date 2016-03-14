@@ -55,7 +55,6 @@ public class Pwinty {
     //
     // Catalogue
     //
-    
     public func getCatalogue(countryCode:String, qualityLevel:QualityLevel, completionHandler:(error:NSError?, catalogue:Catalogue?) -> Void) {
         
         let catalogueRequestUrl = String(format: "%@/Catalogue/%@/%@", getApiRequestUrl(),"GB", qualityLevel.rawValue)
@@ -77,7 +76,6 @@ public class Pwinty {
     //
     // Orders
     //
-    
     public func getOrders(completionHandler:(error:NSError?, orders:[Order]?) -> Void) {
         
         let ordersRequestUrl = String(format: "%@/Orders", getApiRequestUrl())
@@ -106,7 +104,7 @@ public class Pwinty {
     
     public func getOrder(orderId:Int, completionHandler:(error:NSError?, order:Order?) -> Void) {
         
-        let orderByIdRequestUrl = String(format: "%@/Orders/%ld", getApiRequestUrl(), orderId)
+        let orderByIdRequestUrl = String(format: "%@/Orders/%d", getApiRequestUrl(), orderId)
         
         Alamofire.request(.GET, orderByIdRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
             
@@ -125,7 +123,7 @@ public class Pwinty {
     
     public func validateOrder(orderId:Int, completionHandler:(error:NSError?, validationResult:OrderValidationResult?) -> Void) {
         
-        let validateOrderRequestUrl = String(format: "%@/Orders/%ld/SubmissionStatus", getApiRequestUrl(), orderId)
+        let validateOrderRequestUrl = String(format: "%@/Orders/%d/SubmissionStatus", getApiRequestUrl(), orderId)
         
         Alamofire.request(.GET, validateOrderRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
             
@@ -137,6 +135,40 @@ public class Pwinty {
                 completionHandler(error:JSON.result.error, validationResult:validationResult)
             } catch let error as NSError {
                 completionHandler(error:error, validationResult: nil)
+            }
+        }
+    }
+    
+    
+    public func createOrder(recipientName:String, address1:String="", address2:String="", addressTownOrCity:String="",
+        postalOrZipCode:String="", countryCode:String, destinationCountryCode:String="", useTrackedShipping:Bool = false,
+        paymentType:PaymentType, qualityLevel:QualityLevel, completionHandler:(error:ErrorType?, order:Order?) -> Void) {
+        
+        let createOrderRequestUrl = String(format: "%@/Orders", getApiRequestUrl())
+        
+        var parameters = [String:AnyObject]()
+            parameters["recipientName"] = recipientName
+            parameters["address1"] = address1
+            parameters["address2"] = address2
+            parameters["addressTownOrCity"] = addressTownOrCity
+            parameters["postalOrZipCode"] = postalOrZipCode
+            parameters["countryCode"] = countryCode
+            parameters["destinationCountryCode"] = destinationCountryCode
+            parameters["useTrackedShipping"] = useTrackedShipping
+            parameters["paymentType"] = paymentType.rawValue
+            parameters["qualityLevel"] = qualityLevel.rawValue
+        
+        
+            Alamofire.request(.POST, createOrderRequestUrl, parameters:parameters, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
+            
+            do {
+                let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                
+                let order = Order(json: deserialisedJSON!)
+                
+                completionHandler(error:JSON.result.error, order:order)
+            } catch {
+                completionHandler(error:error, order: nil)
             }
         }
     }
@@ -171,7 +203,7 @@ public class Pwinty {
             parameters["postalOrZipCode"] = postalOrZipCode
         }
             
-        let updateOrderRequestUrl = String(format: "%@/Orders/%ld", getApiRequestUrl(), orderId)
+        let updateOrderRequestUrl = String(format: "%@/Orders/%d", getApiRequestUrl(), orderId)
             
         Alamofire.request(.PUT, updateOrderRequestUrl, parameters: parameters, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
             do {
@@ -187,45 +219,30 @@ public class Pwinty {
         }
     }
     
-    
-    
-
-/*
-    Order createOrder(Order newOrder, boolean useTrackedShipping) {
-    Form form = createOrderForm(newOrder, useTrackedShipping);
-    ClientResponse response = webResource.path("Orders")
-    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
-    .accept(MediaType.APPLICATION_JSON_TYPE)
-    .header("X-Pwinty-MerchantId", merchantId)
-    .header("X-Pwinty-REST-API-Key", apiKey)
-    .post(ClientResponse.class, form);
-    
-    Order createdOrder = createReponse(response, Order.class);
-    createdOrder.setPwinty(this);
-    
-    for (Photo photo : newOrder.getPhotos()) {
-    createdOrder.addPhoto(photo.getUrl(), photo.getType(),
-    photo.getCopies(), photo.getSizing());
-    }
-    return createdOrder;
-    }*/
-    
-    
-    public func createOrder(orderDetails:Order, useTrackedShipping:Bool) -> Order {
+    public func submitOrder(orderId:Int, completionHandler:(error:ErrorType?) -> Void) {
         
-        // create order parameters (form)
-        // post order to service endpoint
-        // process response
-        // move photos over to response order
-        // return response order
-
-        let order = Order(json: ["":""])
-            
+        let submitOrderUrl = String(format: "%@/Orders/%d/Status", getApiRequestUrl(), orderId)
         
-        return order!
+        Alamofire.request(.POST, submitOrderUrl, parameters: ["status" : "Submitted"], encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(response) in
+            if (response.response?.statusCode >= 200 || response.response?.statusCode < 300) {
+                
+                do {
+                    let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                    
+                    let submitResponse = OrderSubmitResponse(json:deserialisedJSON!)
+                    
+                    debugPrint(submitResponse?.errorMessage)
+                    
+                } catch {
+                    completionHandler(error:error)
+                }
+            } else {
+                completionHandler(error: nil)
+            }
+        
+        }
     }
     
-    // public func submitOrder ... either with order object or with by id
     
     //
     // Order Issues
@@ -233,7 +250,7 @@ public class Pwinty {
     
     public func createOrderIssue(orderId:Int, issueType:IssueType, issueDetail:String, requiredAction:IssueActionType, actionDetail:String = "", affectedImages:[Int] = [], completionHandler:(error:ErrorType?, orderIssue:OrderIssue?) -> Void) {
         
-        let createOrderIssueRequestUrl = String(format: "%@/Orders/%@/Issues", getApiRequestUrl(), orderId)
+        let createOrderIssueRequestUrl = String(format: "%@/Orders/%d/Issues", getApiRequestUrl(), orderId)
         
         var parameters = [String:AnyObject]()
             parameters["orderId"] = orderId
@@ -278,7 +295,7 @@ public class Pwinty {
     
     public func getOrderIssues(orderId:Int, completionHandler:(error:ErrorType?, issues:[OrderIssue]?) -> Void) {
         
-        let orderIssuesRequestUrl = String(format: "%@/Orders/%@/Issues", getApiRequestUrl(), orderId)
+        let orderIssuesRequestUrl = String(format: "%@/Orders/%d/Issues", getApiRequestUrl(), orderId)
         
         Alamofire.request(.GET, orderIssuesRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(response) in
             
@@ -287,8 +304,12 @@ public class Pwinty {
                     completionHandler(error:response.result.error, issues:nil)
                 } else {
                     if (response.response?.statusCode == 200) {
-                        let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions())
-                        let issues = [OrderIssue].fromJSONArray(deserialisedJSON as! [JSON])
+                        let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+
+                        let issuesResponse = OrderIssuesResponse(json: deserialisedJSON!)
+                        let issues = issuesResponse!.issues
+                        
+//                        let issues = [OrderIssue].fromJSONArray(deserialisedJSON as! [JSON])
                         
                         completionHandler(error:response.result.error, issues:issues);
                     } else {
@@ -303,7 +324,7 @@ public class Pwinty {
     
     public func getOrderIssue(orderId:Int, issueId:Int, completionHandler:(error:NSError?, orderIssue:OrderIssue?) -> Void) {
         
-        let orderIssueRequestUrl = String(format: "%@/Orders/%@/Issues/%@", getApiRequestUrl(), orderId, issueId)
+        let orderIssueRequestUrl = String(format: "%@/Orders/%d/Issues/%d", getApiRequestUrl(), orderId, issueId)
         
         Alamofire.request(.GET, orderIssueRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
             
@@ -322,7 +343,7 @@ public class Pwinty {
     
     public func commentOnOrderIssue(orderId:Int, issueId:Int, comment:String, completionHandler:(error:NSError?, updatedOrderIssue:OrderIssue?) -> Void) {
         
-        let orderIssueCommentUrl = String(format: "%@/Orders/%@/Issues/%@", getApiRequestUrl(), orderId, issueId)
+        let orderIssueCommentUrl = String(format: "%@/Orders/%d/Issues/%d", getApiRequestUrl(), orderId, issueId)
         
         let parameters = ["comment" : comment]
         
@@ -343,10 +364,10 @@ public class Pwinty {
     
     public func cancelOrderIssue(orderId:Int, issueId:Int, comment:String = "", completionHandler:(error:NSError?, updatedOrderIssue:OrderIssue?) -> Void) {
         
-        let orderIssueCancelUrl = String(format: "%@/Orders/%@/Issues/%@", getApiRequestUrl(), orderId, issueId)
+        let orderIssueCancelUrl = String(format: "%@/Orders/%d/Issues/%d", getApiRequestUrl(), orderId, issueId)
 
         var parameters = [String:AnyObject]()
-            parameters[""] = "Cancelled"
+            parameters["newState"] = "Cancelled"
         
         if (!comment.isEmpty) {
             parameters["comment"] = comment
@@ -365,7 +386,6 @@ public class Pwinty {
             }
         }
     }
-    
     
     private func getApiRequestUrl() -> String {
         if (isUsingSandbox()) {

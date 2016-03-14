@@ -12,9 +12,8 @@ import XCTest
 
 class PwintyTests: XCTestCase {
     
-    let merchantId = "";
-    let apiKey = "";
-    
+    let merchantId = ""
+    let apiKey = ""
     
     var pwinty:Pwinty?
     
@@ -62,6 +61,8 @@ class PwintyTests: XCTestCase {
             XCTAssertEqual(catalogue!.qualityLevel, QualityLevel.Pro)
             XCTAssertEqual(catalogue!.countryCode, "GB")
             
+            
+            
             readyExpectation.fulfill()
         })
         
@@ -70,17 +71,100 @@ class PwintyTests: XCTestCase {
         }
     }
     
+/*
     func testGetOrders() {
         
         let readyExpectation = expectationWithDescription("ready")
         
         pwinty?.getOrders({ (error, orders) -> Void in
             XCTAssertNil(error)
-            XCTAssertNil(orders)
+            XCTAssertNotNil(orders)
             
             readyExpectation.fulfill()
         })
     
+        waitForExpectationsWithTimeout(15) { error in
+            XCTAssertNil(error, "Error")
+        }
+    }
+    
+    func testCreateOrder() {
+        
+        let readyExpectation = expectationWithDescription("ready")
+        
+        pwinty?.createOrder("Bob Tester", countryCode: "GB", destinationCountryCode: "GB",
+                                          paymentType: PaymentType.InvoiceMe,
+                                         qualityLevel: QualityLevel.Standard,
+                                    completionHandler: { (error, order) -> Void in
+                                        
+            XCTAssertNil(error)
+            XCTAssertNotNil(order)
+                                        
+            readyExpectation.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(15) { error in
+            XCTAssertNil(error, "Error")
+        }
+    }
+*/
+    
+    func testOrderIssueProcess() {
+        
+        let readyExpectation = expectationWithDescription("ready")
+        
+        pwinty?.getOrders({ (error, orders) -> Void in
+            
+            XCTAssertNil(error)
+            XCTAssertNotNil(orders)
+            XCTAssertEqual(2, orders?.count)
+            
+            let order = orders![0]
+            
+            self.pwinty?.getOrderIssues(order.orderId!, completionHandler: { (error, issues) -> Void in
+                
+                XCTAssertNil(error)
+                XCTAssertNotNil(issues)
+                XCTAssertEqual(1, issues!.count)
+                
+                let orderIssue = issues![0]
+                
+                self.pwinty?.cancelOrderIssue(orderIssue.orderId!, issueId: orderIssue.issueId!, comment: "Actually, I like the frame so I'm cancelling this issue.", completionHandler: { (error, updatedOrderIssue) -> Void in
+                    
+                    XCTAssertNil(error)
+                    XCTAssertNotNil(updatedOrderIssue)
+                    XCTAssertEqual("Cancelled", updatedOrderIssue?.issueState)
+                    
+                    readyExpectation.fulfill()
+                })
+            })
+        })
+        
+        waitForExpectationsWithTimeout(60) { error in
+            XCTAssertNil(error, "Error")
+        }
+    }
+    
+    
+    func testCreatingAndSubmittingAnOrder() {
+        
+        let readyExpectation = expectationWithDescription("ready")
+        
+        pwinty?.getOrders({ (error, orders) -> Void in
+            
+            XCTAssertNil(error)
+            XCTAssertNotNil(orders)
+            XCTAssertEqual(2, orders?.count)
+            
+            let order = orders![1]
+            
+            self.pwinty?.submitOrder(order.orderId!, completionHandler: { (error) -> Void in
+                XCTAssertNil(error)
+                
+                readyExpectation.fulfill()
+            })
+        })
+
         waitForExpectationsWithTimeout(15) { error in
             XCTAssertNil(error, "Error")
         }
