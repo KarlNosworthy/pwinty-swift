@@ -12,8 +12,8 @@ import XCTest
 
 class PwintyTests: XCTestCase {
     
-    let merchantId = ""
-    let apiKey = ""
+    var merchantId:String?
+    var apiKey:String?
     
     var pwinty:Pwinty?
     
@@ -21,8 +21,16 @@ class PwintyTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        pwinty = Pwinty(merchantId:merchantId,
-                                 apiKey:apiKey,
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let filename = bundle.pathForResource("pwinty_settings", ofType: "plist", inDirectory: "config")
+        
+        let settings = NSDictionary(contentsOfFile: filename!)
+        
+        merchantId = settings!["PWMerchantIdentifier"] as? String
+        apiKey = settings!["PWAPIKey"] as? String
+        
+        pwinty = Pwinty(merchantId:merchantId!,
+                                 apiKey:apiKey!,
                            usingSandbox:true)
     }
     
@@ -30,7 +38,6 @@ class PwintyTests: XCTestCase {
         super.tearDown()
         pwinty = nil
     }
-
     
     func testGetCountries() {
         let readyExpectation = expectationWithDescription("ready")

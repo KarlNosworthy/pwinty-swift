@@ -23,6 +23,7 @@
 		CBB9B9741C916F070061616D /* Pwinty.h in Headers */ = {isa = PBXBuildFile; fileRef = CBB9B9721C916F070061616D /* Pwinty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CBE05DC11C96C0CA00D73922 /* OrderIssuesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE05DC01C96C0CA00D73922 /* OrderIssuesResponse.swift */; };
 		CBE05DC31C96E11A00D73922 /* OrderSubmitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE05DC21C96E11A00D73922 /* OrderSubmitResponse.swift */; };
+		CBE05DC61C96FBD800D73922 /* config in Resources */ = {isa = PBXBuildFile; fileRef = CBE05DC51C96FBD800D73922 /* config */; };
 		CBE4EBD11C9162EA0016300F /* Pwinty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE4EBC61C9162EA0016300F /* Pwinty.framework */; };
 		CBE4EBD61C9162EA0016300F /* PwintyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE4EBD51C9162EA0016300F /* PwintyTests.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		CBB9B9721C916F070061616D /* Pwinty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pwinty.h; sourceTree = "<group>"; };
 		CBE05DC01C96C0CA00D73922 /* OrderIssuesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderIssuesResponse.swift; sourceTree = "<group>"; };
 		CBE05DC21C96E11A00D73922 /* OrderSubmitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSubmitResponse.swift; sourceTree = "<group>"; };
+		CBE05DC51C96FBD800D73922 /* config */ = {isa = PBXFileReference; lastKnownFileType = folder; name = config; path = PwintyTests/config; sourceTree = SOURCE_ROOT; };
 		CBE4EBC61C9162EA0016300F /* Pwinty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pwinty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE4EBD01C9162EA0016300F /* PwintyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PwintyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE4EBD51C9162EA0016300F /* PwintyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PwintyTests.swift; path = PwintyTests/PwintyTests.swift; sourceTree = SOURCE_ROOT; };
@@ -162,6 +164,7 @@
 		CBE4EBD41C9162EA0016300F /* PwintyTests */ = {
 			isa = PBXGroup;
 			children = (
+				CBE05DC51C96FBD800D73922 /* config */,
 				CBE4EBD51C9162EA0016300F /* PwintyTests.swift */,
 				CBE4EBD71C9162EA0016300F /* Info.plist */,
 			);
@@ -269,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBE05DC61C96FBD800D73922 /* config in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

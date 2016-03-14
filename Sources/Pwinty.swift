@@ -387,6 +387,31 @@ public class Pwinty {
         }
     }
     
+    
+    //
+    // Photos
+    //
+    
+    public func getPhotos(orderId:Int, completionHandler:(error:ErrorType?, photos:[Photo]) -> Void) {
+//        https://api.pwinty.com/v2.2/Orders/{id}/Photos
+        
+    
+    }
+    
+    public func getPhoto(orderId:Int, photoId:Int, completionHandler:(error:ErrorType?, photo:Photo) -> Void) {
+        
+    }
+    
+    public func addPhotoToOrderWithFile(orderId:Int) {
+        
+    }
+    
+    
+    public func addPhotoToOrderWithUrl() {
+        
+    }
+    
+    
     private func getApiRequestUrl() -> String {
         if (isUsingSandbox()) {
             return "https://sandbox.pwinty.com/v2.2"

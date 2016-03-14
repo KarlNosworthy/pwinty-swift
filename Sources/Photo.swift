@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-struct Photo : Decodable {
+public struct Photo : Decodable {
     
     let photoId : Int?
     // type
@@ -25,7 +25,7 @@ struct Photo : Decodable {
     
     
     
-    init?(json: JSON) {
+    public init?(json: JSON) {
         photoId = "id" <~~ json
         url = "url" <~~ json
         copies = "copies" <~~ json
