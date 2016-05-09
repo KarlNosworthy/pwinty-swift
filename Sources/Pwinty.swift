@@ -18,7 +18,7 @@ public class Pwinty {
     let apiKey: String?
 
     
-    init(merchantId:String, apiKey:String, usingSandbox:Bool) {
+    public init(merchantId:String, apiKey:String, usingSandbox:Bool) {
         self.merchantId = merchantId;
         self.apiKey = apiKey;
         self.usingSandbox = usingSandbox;
@@ -308,8 +308,6 @@ public class Pwinty {
 
                         let issuesResponse = OrderIssuesResponse(json: deserialisedJSON!)
                         let issues = issuesResponse!.issues
-                        
-//                        let issues = [OrderIssue].fromJSONArray(deserialisedJSON as! [JSON])
                         
                         completionHandler(error:response.result.error, issues:issues);
                     } else {
