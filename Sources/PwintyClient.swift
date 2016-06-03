@@ -1,5 +1,5 @@
 //
-//  Pwinty.swift
+//  PwintyClient.swift
 //  Pwinty
 //
 //  Created by Karl Nosworthy on 10/03/2016.
@@ -11,7 +11,7 @@ import Alamofire
 import Gloss
 
 
-public class Pwinty {
+public class PwintyClient {
     
     let usingSandbox : Bool?
     let merchantId : String?
@@ -390,15 +390,31 @@ public class Pwinty {
     // Photos
     //
     
-    public func getPhotos(orderId:Int, completionHandler:(error:ErrorType?, photos:[Photo]) -> Void) {
-//        https://api.pwinty.com/v2.2/Orders/{id}/Photos
-        
-    
+    public func getPhotos(orderId:Int, completionHandler:(error:ErrorType?, photos:[PwintyPhoto]) -> Void) {
     }
     
-    public func getPhoto(orderId:Int, photoId:Int, completionHandler:(error:ErrorType?, photo:Photo) -> Void) {
+    public func getPhoto(orderId:Int, photoId:Int, completionHandler:(error:ErrorType?, photo:PwintyPhoto?) -> Void) {
+        let orderPhotoRequestUrl = String(format: "%@/Orders/%d/Photos/%d", getApiRequestUrl(), orderId, photoId)
         
+        Alamofire.request(.GET, orderPhotoRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
+            
+            do {
+                let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                
+                if (JSON.response!.statusCode == 200) {
+                    let photo = PwintyPhoto(json: deserialisedJSON!)
+                    completionHandler(error:JSON.result.error, photo:photo)
+                } else {
+                    let error = PwintyErrorResponse.createError(deserialisedJSON!, httpStatusCode: JSON.response!.statusCode)
+                    
+                    completionHandler(error:error, photo: nil)
+                }
+            } catch let error as NSError {
+                completionHandler(error:error, photo:nil)
+            }
+        }
     }
+    
     
     public func addPhotoToOrderWithFile(orderId:Int) {
         

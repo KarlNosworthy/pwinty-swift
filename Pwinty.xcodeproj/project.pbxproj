@@ -7,20 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19788B90476F229B345E8C5D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282983D3EC1FED6522F3E567 /* Pods.framework */; };
+		A139AAFE56E9A38ACD2BA7E2 /* Pods_Pwinty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9739C668166EBDC77770CE0A /* Pods_Pwinty.framework */; };
+		C3060CCFE74CA2909A081FB0 /* Pods_Pwinty_PwintyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFAB8A698F72A5601E7B0BCB /* Pods_Pwinty_PwintyTests.framework */; };
 		CB3707371C95CB5600314577 /* OrderIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3707361C95CB5600314577 /* OrderIssue.swift */; };
-		CB6A9B921C917A22003BC3A3 /* Pwinty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B911C917A22003BC3A3 /* Pwinty.swift */; };
+		CB4DD2321D017377008E26AD /* fixtures in Resources */ = {isa = PBXBuildFile; fileRef = CB4DD2311D017377008E26AD /* fixtures */; };
+		CB6A9B921C917A22003BC3A3 /* PwintyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B911C917A22003BC3A3 /* PwintyClient.swift */; };
 		CB6A9B941C917A63003BC3A3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B931C917A63003BC3A3 /* Order.swift */; };
 		CB6A9B961C917DE2003BC3A3 /* ShippingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B951C917DE2003BC3A3 /* ShippingInfo.swift */; };
 		CB6A9B981C917E1D003BC3A3 /* Shipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B971C917E1D003BC3A3 /* Shipment.swift */; };
-		CB6A9B9A1C91A3C7003BC3A3 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B991C91A3C7003BC3A3 /* Photo.swift */; };
+		CB6A9B9A1C91A3C7003BC3A3 /* PwintyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B991C91A3C7003BC3A3 /* PwintyPhoto.swift */; };
 		CB6A9B9C1C91A782003BC3A3 /* Catalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B9B1C91A782003BC3A3 /* Catalogue.swift */; };
 		CB6A9B9E1C91EF77003BC3A3 /* ShippingRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B9D1C91EF77003BC3A3 /* ShippingRate.swift */; };
 		CB6A9BA01C91F169003BC3A3 /* CatalogueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B9F1C91F169003BC3A3 /* CatalogueItem.swift */; };
 		CB6A9BA21C91F6B6003BC3A3 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9BA11C91F6B6003BC3A3 /* Country.swift */; };
 		CB7965571C945D5A0020857E /* OrderValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7965561C945D5A0020857E /* OrderValidationResult.swift */; };
 		CB7965591C945E840020857E /* PhotoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7965581C945E840020857E /* PhotoError.swift */; };
+		CB8755271D00D2BB00B64F03 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CB8755261D00D2BB00B64F03 /* Podfile */; };
+		CB8755291D00D42000B64F03 /* PwintyPhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8755281D00D42000B64F03 /* PwintyPhotoTests.swift */; };
+		CB9F1A5F1CE124C1002D4189 /* Pwinty.podspec in Resources */ = {isa = PBXBuildFile; fileRef = CB9F1A5E1CE124C1002D4189 /* Pwinty.podspec */; };
 		CBB9B9741C916F070061616D /* Pwinty.h in Headers */ = {isa = PBXBuildFile; fileRef = CBB9B9721C916F070061616D /* Pwinty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CBBF382E1D00E1F2008BC91A /* PwintyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B991C91A3C7003BC3A3 /* PwintyPhoto.swift */; };
+		CBBF38381D00FBF4008BC91A /* PwintyErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF38371D00FBF3008BC91A /* PwintyErrorResponse.swift */; };
 		CBE05DC11C96C0CA00D73922 /* OrderIssuesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE05DC01C96C0CA00D73922 /* OrderIssuesResponse.swift */; };
 		CBE05DC31C96E11A00D73922 /* OrderSubmitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE05DC21C96E11A00D73922 /* OrderSubmitResponse.swift */; };
 		CBE05DC61C96FBD800D73922 /* config in Resources */ = {isa = PBXBuildFile; fileRef = CBE05DC51C96FBD800D73922 /* config */; };
@@ -39,22 +46,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BEA3B108B8A2C34A673833A /* Pods-Pwinty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pwinty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pwinty/Pods-Pwinty.release.xcconfig"; sourceTree = "<group>"; };
 		282983D3EC1FED6522F3E567 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CA43698504292C8325B6295 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9739C668166EBDC77770CE0A /* Pods_Pwinty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pwinty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F12E797A30AFA88D5139BC8 /* Pods-Pwinty-PwintyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pwinty-PwintyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pwinty-PwintyTests/Pods-Pwinty-PwintyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AFAB8A698F72A5601E7B0BCB /* Pods_Pwinty_PwintyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pwinty_PwintyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C282A7B39074A3FACBFB3C28 /* Pods-Pwinty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pwinty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pwinty/Pods-Pwinty.debug.xcconfig"; sourceTree = "<group>"; };
 		CB3707361C95CB5600314577 /* OrderIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderIssue.swift; sourceTree = "<group>"; };
-		CB6A9B911C917A22003BC3A3 /* Pwinty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pwinty.swift; sourceTree = "<group>"; };
+		CB3BBA8A1CA03853003CA6C9 /* pwinty-tvos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pwinty-tvos.h"; sourceTree = "<group>"; };
+		CB3BBA8C1CA03853003CA6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB4DD2311D017377008E26AD /* fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fixtures; path = PwintyTests/fixtures; sourceTree = SOURCE_ROOT; };
+		CB6A9B911C917A22003BC3A3 /* PwintyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwintyClient.swift; sourceTree = "<group>"; };
 		CB6A9B931C917A63003BC3A3 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		CB6A9B951C917DE2003BC3A3 /* ShippingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingInfo.swift; sourceTree = "<group>"; };
 		CB6A9B971C917E1D003BC3A3 /* Shipment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shipment.swift; sourceTree = "<group>"; };
-		CB6A9B991C91A3C7003BC3A3 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		CB6A9B991C91A3C7003BC3A3 /* PwintyPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwintyPhoto.swift; sourceTree = "<group>"; };
 		CB6A9B9B1C91A782003BC3A3 /* Catalogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catalogue.swift; sourceTree = "<group>"; };
 		CB6A9B9D1C91EF77003BC3A3 /* ShippingRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingRate.swift; sourceTree = "<group>"; };
 		CB6A9B9F1C91F169003BC3A3 /* CatalogueItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogueItem.swift; sourceTree = "<group>"; };
 		CB6A9BA11C91F6B6003BC3A3 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		CB7965561C945D5A0020857E /* OrderValidationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderValidationResult.swift; sourceTree = "<group>"; };
 		CB7965581C945E840020857E /* PhotoError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoError.swift; sourceTree = "<group>"; };
+		CB8755261D00D2BB00B64F03 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CB8755281D00D42000B64F03 /* PwintyPhotoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PwintyPhotoTests.swift; path = PwintyTests/PwintyPhotoTests.swift; sourceTree = SOURCE_ROOT; };
+		CB9F1A5E1CE124C1002D4189 /* Pwinty.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pwinty.podspec; sourceTree = "<group>"; };
 		CBB9B9711C916F070061616D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBB9B9721C916F070061616D /* Pwinty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pwinty.h; sourceTree = "<group>"; };
+		CBBF38371D00FBF3008BC91A /* PwintyErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwintyErrorResponse.swift; sourceTree = "<group>"; };
 		CBE05DC01C96C0CA00D73922 /* OrderIssuesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderIssuesResponse.swift; sourceTree = "<group>"; };
 		CBE05DC21C96E11A00D73922 /* OrderSubmitResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSubmitResponse.swift; sourceTree = "<group>"; };
 		CBE05DC51C96FBD800D73922 /* config */ = {isa = PBXFileReference; lastKnownFileType = folder; name = config; path = PwintyTests/config; sourceTree = SOURCE_ROOT; };
@@ -62,7 +80,7 @@
 		CBE4EBD01C9162EA0016300F /* PwintyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PwintyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE4EBD51C9162EA0016300F /* PwintyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PwintyTests.swift; path = PwintyTests/PwintyTests.swift; sourceTree = SOURCE_ROOT; };
 		CBE4EBD71C9162EA0016300F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F01F52ACB420B7DACCE4D9D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F7F7EDE8DEE7DEABF1F165C8 /* Pods-Pwinty-PwintyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pwinty-PwintyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pwinty-PwintyTests/Pods-Pwinty-PwintyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19788B90476F229B345E8C5D /* Pods.framework in Frameworks */,
+				A139AAFE56E9A38ACD2BA7E2 /* Pods_Pwinty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,27 +97,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBE4EBD11C9162EA0016300F /* Pwinty.framework in Frameworks */,
+				C3060CCFE74CA2909A081FB0 /* Pods_Pwinty_PwintyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		37965B96133645C3807EF42E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F01F52ACB420B7DACCE4D9D8 /* Pods.debug.xcconfig */,
-				4CA43698504292C8325B6295 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		4A8D507E4229283D7FB1CCDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				282983D3EC1FED6522F3E567 /* Pods.framework */,
+				9739C668166EBDC77770CE0A /* Pods_Pwinty.framework */,
+				AFAB8A698F72A5601E7B0BCB /* Pods_Pwinty_PwintyTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCD1B65E05E89EB848007DC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C282A7B39074A3FACBFB3C28 /* Pods-Pwinty.debug.xcconfig */,
+				0BEA3B108B8A2C34A673833A /* Pods-Pwinty.release.xcconfig */,
+				9F12E797A30AFA88D5139BC8 /* Pods-Pwinty-PwintyTests.debug.xcconfig */,
+				F7F7EDE8DEE7DEABF1F165C8 /* Pods-Pwinty-PwintyTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CB3BBA891CA03853003CA6C9 /* pwinty-tvos */ = {
+			isa = PBXGroup;
+			children = (
+				CB3BBA8A1CA03853003CA6C9 /* pwinty-tvos.h */,
+				CB3BBA8C1CA03853003CA6C9 /* Info.plist */,
+			);
+			path = "pwinty-tvos";
 			sourceTree = "<group>";
 		};
 		CB6A9B901C917995003BC3A3 /* Model */ = {
@@ -112,7 +144,7 @@
 				CB6A9B931C917A63003BC3A3 /* Order.swift */,
 				CB3707361C95CB5600314577 /* OrderIssue.swift */,
 				CB7965561C945D5A0020857E /* OrderValidationResult.swift */,
-				CB6A9B991C91A3C7003BC3A3 /* Photo.swift */,
+				CB6A9B991C91A3C7003BC3A3 /* PwintyPhoto.swift */,
 				CB7965581C945E840020857E /* PhotoError.swift */,
 				CB6A9B971C917E1D003BC3A3 /* Shipment.swift */,
 				CB6A9B951C917DE2003BC3A3 /* ShippingInfo.swift */,
@@ -127,7 +159,7 @@
 				CB6A9B901C917995003BC3A3 /* Model */,
 				CBB9B9711C916F070061616D /* Info.plist */,
 				CBB9B9721C916F070061616D /* Pwinty.h */,
-				CB6A9B911C917A22003BC3A3 /* Pwinty.swift */,
+				CB6A9B911C917A22003BC3A3 /* PwintyClient.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -137,6 +169,7 @@
 			children = (
 				CBE05DC01C96C0CA00D73922 /* OrderIssuesResponse.swift */,
 				CBE05DC21C96E11A00D73922 /* OrderSubmitResponse.swift */,
+				CBBF38371D00FBF3008BC91A /* PwintyErrorResponse.swift */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -144,11 +177,14 @@
 		CBE4EBBC1C9162EA0016300F = {
 			isa = PBXGroup;
 			children = (
+				CB8755261D00D2BB00B64F03 /* Podfile */,
+				CB9F1A5E1CE124C1002D4189 /* Pwinty.podspec */,
 				CBB9B9701C916F070061616D /* Sources */,
 				CBE4EBD41C9162EA0016300F /* PwintyTests */,
+				CB3BBA891CA03853003CA6C9 /* pwinty-tvos */,
 				CBE4EBC71C9162EA0016300F /* Products */,
-				37965B96133645C3807EF42E /* Pods */,
 				4A8D507E4229283D7FB1CCDE /* Frameworks */,
+				BCD1B65E05E89EB848007DC2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,8 +201,10 @@
 			isa = PBXGroup;
 			children = (
 				CBE05DC51C96FBD800D73922 /* config */,
-				CBE4EBD51C9162EA0016300F /* PwintyTests.swift */,
+				CB4DD2311D017377008E26AD /* fixtures */,
 				CBE4EBD71C9162EA0016300F /* Info.plist */,
+				CBE4EBD51C9162EA0016300F /* PwintyTests.swift */,
+				CB8755281D00D42000B64F03 /* PwintyPhotoTests.swift */,
 			);
 			name = PwintyTests;
 			path = pwintyTests;
@@ -190,12 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBE4EBDA1C9162EA0016300F /* Build configuration list for PBXNativeTarget "Pwinty" */;
 			buildPhases = (
-				52AE3E3F211A14C097512FFB /* Check Pods Manifest.lock */,
+				007EA77FA89CEE266B271D32 /* [CP] Check Pods Manifest.lock */,
 				CBE4EBC11C9162EA0016300F /* Sources */,
 				CBE4EBC21C9162EA0016300F /* Frameworks */,
 				CBE4EBC31C9162EA0016300F /* Headers */,
 				CBE4EBC41C9162EA0016300F /* Resources */,
-				09F5F08812AE933C60358FA4 /* Copy Pods Resources */,
+				F5B75A488F1B0A2C40744D37 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,9 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBE4EBDD1C9162EA0016300F /* Build configuration list for PBXNativeTarget "PwintyTests" */;
 			buildPhases = (
+				374EC5950DBAA30065D3DE18 /* [CP] Check Pods Manifest.lock */,
 				CBE4EBCC1C9162EA0016300F /* Sources */,
 				CBE4EBCD1C9162EA0016300F /* Frameworks */,
 				CBE4EBCE1C9162EA0016300F /* Resources */,
+				C68E861FBA05B039E1C99624 /* [CP] Embed Pods Frameworks */,
+				12D454815C96DBF9D12802A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +306,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8755271D00D2BB00B64F03 /* Podfile in Resources */,
+				CB9F1A5F1CE124C1002D4189 /* Pwinty.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB4DD2321D017377008E26AD /* fixtures in Resources */,
 				CBE05DC61C96FBD800D73922 /* config in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,34 +323,79 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09F5F08812AE933C60358FA4 /* Copy Pods Resources */ = {
+		007EA77FA89CEE266B271D32 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		52AE3E3F211A14C097512FFB /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		12D454815C96DBF9D12802A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pwinty-PwintyTests/Pods-Pwinty-PwintyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		374EC5950DBAA30065D3DE18 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C68E861FBA05B039E1C99624 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pwinty-PwintyTests/Pods-Pwinty-PwintyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5B75A488F1B0A2C40744D37 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pwinty/Pods-Pwinty-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -323,11 +412,12 @@
 				CB3707371C95CB5600314577 /* OrderIssue.swift in Sources */,
 				CBE05DC11C96C0CA00D73922 /* OrderIssuesResponse.swift in Sources */,
 				CB6A9BA01C91F169003BC3A3 /* CatalogueItem.swift in Sources */,
-				CB6A9B921C917A22003BC3A3 /* Pwinty.swift in Sources */,
+				CB6A9B921C917A22003BC3A3 /* PwintyClient.swift in Sources */,
 				CB6A9B961C917DE2003BC3A3 /* ShippingInfo.swift in Sources */,
-				CB6A9B9A1C91A3C7003BC3A3 /* Photo.swift in Sources */,
+				CB6A9B9A1C91A3C7003BC3A3 /* PwintyPhoto.swift in Sources */,
 				CB6A9B9E1C91EF77003BC3A3 /* ShippingRate.swift in Sources */,
 				CBE05DC31C96E11A00D73922 /* OrderSubmitResponse.swift in Sources */,
+				CBBF38381D00FBF4008BC91A /* PwintyErrorResponse.swift in Sources */,
 				CB7965571C945D5A0020857E /* OrderValidationResult.swift in Sources */,
 				CB6A9B9C1C91A782003BC3A3 /* Catalogue.swift in Sources */,
 			);
@@ -337,7 +427,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBBF382E1D00E1F2008BC91A /* PwintyPhoto.swift in Sources */,
 				CBE4EBD61C9162EA0016300F /* PwintyTests.swift in Sources */,
+				CB8755291D00D42000B64F03 /* PwintyPhotoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +535,7 @@
 		};
 		CBE4EBDB1C9162EA0016300F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F01F52ACB420B7DACCE4D9D8 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = C282A7B39074A3FACBFB3C28 /* Pods-Pwinty.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -464,7 +556,7 @@
 		};
 		CBE4EBDC1C9162EA0016300F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CA43698504292C8325B6295 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0BEA3B108B8A2C34A673833A /* Pods-Pwinty.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -484,6 +576,7 @@
 		};
 		CBE4EBDE1C9162EA0016300F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F12E797A30AFA88D5139BC8 /* Pods-Pwinty-PwintyTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PwintyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -494,6 +587,7 @@
 		};
 		CBE4EBDF1C9162EA0016300F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7F7EDE8DEE7DEABF1F165C8 /* Pods-Pwinty-PwintyTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = PwintyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

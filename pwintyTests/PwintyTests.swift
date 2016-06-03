@@ -15,7 +15,7 @@ class PwintyTests: XCTestCase {
     var merchantId:String?
     var apiKey:String?
     
-    var pwinty:Pwinty?
+    var pwinty:PwintyClient?
     
     
     override func setUp() {
@@ -29,7 +29,7 @@ class PwintyTests: XCTestCase {
         merchantId = settings!["PWMerchantIdentifier"] as? String
         apiKey = settings!["PWAPIKey"] as? String
         
-        pwinty = Pwinty(merchantId:merchantId!,
+        pwinty = PwintyClient(merchantId:merchantId!,
                                  apiKey:apiKey!,
                            usingSandbox:true)
     }
