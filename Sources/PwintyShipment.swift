@@ -10,7 +10,7 @@ import Foundation
 import Gloss
 
 
-struct PwintyShipment : Decodable {
+public struct PwintyShipment : Decodable {
     
     var shipmentId : String?
     var trackingNumber : String?
@@ -30,7 +30,7 @@ struct PwintyShipment : Decodable {
     
     // MARK: - Deserialization
     
-    init(json:JSON) {
+    public init(json:JSON) {
         self.shipmentId = "shipmentId" <~~ json
         
         // the next property is boolean

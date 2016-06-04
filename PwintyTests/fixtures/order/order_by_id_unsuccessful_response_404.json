@@ -1,0 +1,19 @@
+{
+    "id": null,
+    "recipientName": null,
+    "address1": null,
+    "address2": null,
+    "addressTownOrCity": null,
+    "stateOrCounty": null,
+    "postalOrZipCode": null,
+    "countryCode": null,
+    "destinationCountryCode": null,
+    "price": null,
+    "shippingInfo" : null,
+    "status" : null,
+    "payment" : null,
+    "paymentUrl" : null,
+    "qualityLevel" : null,
+    "photos": null,
+    "errorMessage" : "The order with the specified id was not found"
+}

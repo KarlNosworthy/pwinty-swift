@@ -20,13 +20,13 @@ public struct PwintyOrder : Decodable {
     var postalOrZipCode : String?
     var countryCode : String?
     var destinationCountryCode : String?
-    var price:Int?
-    var status:OrderStatus?
-    var shippingInfo : PwintyShippingInfo?
-    var payment:PaymentType?
-    var paymentUrl : String?
-    var qualityLevel : QualityLevel?
-//    var photos = [Photo]()
+    public private(set) var price:Int?
+    public private(set) var status:OrderStatus?
+    public private(set) var shippingInfo : PwintyShippingInfo?
+    public private(set) var payment:PaymentType?
+    public private(set) var paymentUrl : String?
+    public private(set) var qualityLevel : QualityLevel?
+    public private(set) var photos:[PwintyPhoto]?
     
     
     public init(countryCode:String, destinationCountryCode:String, qualityLevel:QualityLevel) {
@@ -51,7 +51,6 @@ public struct PwintyOrder : Decodable {
         self.payment = "payment" <~~ json
         self.paymentUrl = "paymentUrl" <~~ json
         self.qualityLevel = "qualityLevel" <~~ json
-        
-//        self.photos = ("photos" <~~ json)!
+        self.photos = "photos" <~~ json
     }
 }

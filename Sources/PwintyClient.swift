@@ -102,7 +102,7 @@ public class PwintyClient {
     }
 
     
-    public func getOrder(orderId:Int, completionHandler:(error:NSError?, order:PwintyOrder?) -> Void) {
+    public func getOrder(orderId:Int, completionHandler:(error:ErrorType?, order:PwintyOrder?) -> Void) {
         
         let orderByIdRequestUrl = String(format: "%@/Orders/%d", getApiRequestUrl(), orderId)
         
@@ -111,9 +111,14 @@ public class PwintyClient {
             do {
                 let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
                 
-                let order = PwintyOrder(json: deserialisedJSON!)
-                
-                completionHandler(error:JSON.result.error, order:order)
+                if (JSON.response!.statusCode == 200) {
+                    let order = PwintyOrder(json: deserialisedJSON!)
+                    completionHandler(error:JSON.result.error, order:order)
+                } else {
+                    let error = PwintyErrorResponse.createError(deserialisedJSON!, httpStatusCode: JSON.response!.statusCode)
+                    
+                    completionHandler(error:error, order: nil)
+                }
             } catch let error as NSError {
                 completionHandler(error:error, order: nil)
             }

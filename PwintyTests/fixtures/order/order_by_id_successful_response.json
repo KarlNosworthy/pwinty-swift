@@ -1,0 +1,52 @@
+{
+    "id": 1065,
+    "recipientName": "Tom Smith",
+    "address1": "14 Acacia Avenue",
+    "address2": "",
+    "addressTownOrCity": "Cardiff",
+    "stateOrCounty": "Glamorgan",
+    "postalOrZipCode": "CF11 1AB",
+    "countryCode": "GB",
+    "destinationCountryCode": "GB",
+    "price": 1292,
+    "shippingInfo" :
+    {
+        "price" : 12,
+        "shipments" :
+        [
+         {
+         "shipmentId" : 321,
+         "trackingNumber" : "123456",
+         "trackingUrl" : "http://www.ups.com/track?123456",
+         "isTracked" : true,
+         "earliestEstimatedArrivalDate" : "2015-02-19T12:50:59.175116Z",
+         "latestEstimatedArrivalDate" : "2015-02-24T12:50:59.175116Z"
+         }
+         ]
+    },
+    "status" : "NotYetSubmitted",
+    "payment" : "InvoiceRecipient",
+    "paymentUrl" : "https://checkout.pwinty.com/Pay?paymentRef=12345",
+    "qualityLevel" : "Pro",
+    "photos": [
+               {
+               "id": 3456,
+               "type": "4x6",
+               "url": "http://www.flickr.com/mytestphoto.jpg",
+               "status": "NotYetDownloaded",
+               "copies": "4",
+               "sizing": "Crop",
+               "priceToUser" : 214,
+               "price" : 199,
+               "md5Hash" : "79054025255fb1a26e4bc422aef54eb4",
+               "previewUrl" : "http://s3.amazonaws.com/anexampleurl",
+               "thumbnailUrl" : "http://s3.amazonaws.com/anexamplethumbnailurl",
+               "attributes": {
+                    "frame_colour" : "silver"
+               }
+               }]
+}
+
+
+
+

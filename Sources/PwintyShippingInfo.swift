@@ -10,20 +10,20 @@ import Foundation
 import Gloss
 
 
-struct PwintyShippingInfo : Decodable {
+public struct PwintyShippingInfo : Decodable {
     
-    let price:Int?
-    let shipments:[PwintyShipment]?
+    public let price:Int?
+    public let shipments:[PwintyShipment]?
     
     
     // MARK: Initialization
     
-    init?(price:Int, shipments:[PwintyShipment]) {
+    public init?(price:Int, shipments:[PwintyShipment]) {
         self.price = price;
         self.shipments = shipments;
     }
     
-    init?(json:JSON) {
+    public init?(json:JSON) {
         self.price = "price" <~~ json
         self.shipments = "shipments" <~~ json
     }
