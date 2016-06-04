@@ -1,0 +1,15 @@
+{
+    "id": null,
+    "type": null,
+    "url": null,
+    "status": null,
+    "copies": null,
+    "sizing": null,
+    "priceToUser" : null,
+    "price" : null,
+    "md5Hash" : null,
+    "previewUrl" : null,
+    "thumbnailUrl" : null,
+    "attributes": null,
+    "errorMessage" : "The photo with the specified id was not found"
+}
