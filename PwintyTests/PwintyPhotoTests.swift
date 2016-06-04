@@ -10,10 +10,10 @@ import XCTest
 import Mockingjay
 import Pwinty
 
-class PwintyPhotoTests: XCTestCase {
+class PwintyPhotoTests: PwintyFixtureTestBase {
     
     func testSuccessfulPhotoByIdRequest() {
-        let responseData = self.loadDataFromJSONFixture("photo_by_id_successful_response")
+        let responseData = self.loadDataFromJSONFixture("photo_by_id_successful_response", fixtureName:"photo")
         
         XCTAssertNotNil(responseData)
         stub(matcher, builder: jsonData(responseData!))
@@ -45,7 +45,7 @@ class PwintyPhotoTests: XCTestCase {
     
     
     func testUnsuccessfulPhotoByIdRequest() {
-        let responseData = self.loadDataFromJSONFixture("photo_by_id_unsuccessful_response_404")
+        let responseData = self.loadDataFromJSONFixture("photo_by_id_unsuccessful_response_404", fixtureName:"photo")
         
         XCTAssertNotNil(responseData)
         stub(matcher, builder: jsonData(responseData!, status: 404))
@@ -65,18 +65,5 @@ class PwintyPhotoTests: XCTestCase {
         waitForExpectationsWithTimeout(10) { error in
             XCTAssertNil(error, "Error")
         }
-    }
-    
-    
-    
-    func matcher(request:NSURLRequest) -> Bool {
-        return true  // Let's match this request
-    }
-    
-    func loadDataFromJSONFixture(resourceName:String) -> NSData? {
-        let path = NSBundle(forClass: self.dynamicType).pathForResource(resourceName,
-                                                                        ofType: "json",
-                                                                        inDirectory: "fixtures/photo")
-        return NSData(contentsOfFile: path!)
     }
 }
