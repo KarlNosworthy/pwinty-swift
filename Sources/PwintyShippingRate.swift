@@ -10,19 +10,18 @@ import Foundation
 import Gloss
 
 
-struct PwintyShippingRate : Decodable {
+public struct PwintyShippingRate : Decodable {
     
-    let band:String?
-    let description:String?
-    // isTracked
-    let priceGBP : Int?
-    let priceUSD : Int?
+    public let band:String?
+    public let description:String?
+    public let isTracked:Bool?
+    public let priceGBP : Int?
+    public let priceUSD : Int?
     
-    
-    init?(json: JSON) {
+    public init?(json: JSON) {
         self.band = "band" <~~ json
         self.description = "description" <~~ json
-//        self.isTracked = "isTracked" <~~ json
+        self.isTracked = "isTracked" <~~ json
         self.priceGBP = "priceGBP" <~~ json
         self.priceUSD = "priceUSD" <~~ json
     }

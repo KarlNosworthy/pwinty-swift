@@ -55,18 +55,23 @@ public class PwintyClient {
     //
     // Catalogue
     //
-    public func getCatalogue(countryCode:String, qualityLevel:QualityLevel, completionHandler:(error:NSError?, catalogue:PwintyCatalogue?) -> Void) {
+    public func getCatalogue(countryCode:String, qualityLevel:QualityLevel, completionHandler:(error:ErrorType?, catalogue:PwintyCatalogue?) -> Void) {
         
-        let catalogueRequestUrl = String(format: "%@/Catalogue/%@/%@", getApiRequestUrl(),"GB", qualityLevel.rawValue)
+        let catalogueRequestUrl = String(format: "%@/Catalogue/%@/%@", getApiRequestUrl(), countryCode, qualityLevel.rawValue)
         
         Alamofire.request(.GET, catalogueRequestUrl, encoding: .JSON, headers: getApiRequestHeaders()).responseJSON {(JSON) in
             
             do {
                 let deserialisedJSON = try  NSJSONSerialization.JSONObjectWithData(JSON.data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
                 
-                let catalogue = PwintyCatalogue(json: deserialisedJSON!)
-                
-                completionHandler(error:JSON.result.error, catalogue:catalogue)
+                if (JSON.response?.statusCode == 200) {
+                    let catalogue = PwintyCatalogue(json: deserialisedJSON!)
+                    completionHandler(error:JSON.result.error, catalogue:catalogue)
+                } else {
+                    let error = PwintyErrorResponse.createError(deserialisedJSON!, httpStatusCode: JSON.response!.statusCode)
+                    
+                    completionHandler(error:error, catalogue: nil)
+                }
             } catch let error as NSError {
                 completionHandler(error:error, catalogue: nil)
             }

@@ -13,11 +13,11 @@ import Gloss
 
 public struct PwintyCatalogue : Decodable {
     
-    let countryCode:String?
-    let country:String?
-    let qualityLevel:QualityLevel?
-    let items:[PwintyCatalogueItem]?
-    let shippingRates:[PwintyShippingRate]?
+    public let countryCode:String?
+    public let country:String?
+    public let qualityLevel:QualityLevel?
+    public let items:[PwintyCatalogueItem]?
+    public let shippingRates:[PwintyShippingRate]?
 
     
     public init?(json: JSON) {

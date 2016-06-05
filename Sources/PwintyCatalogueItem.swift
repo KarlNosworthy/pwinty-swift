@@ -9,23 +9,23 @@
 import Foundation
 import Gloss
 
-struct PwintyCatalogueItem : Decodable {
+public struct PwintyCatalogueItem : Decodable {
     
-    let name : String?
-    let description : String?
-    let imageHorizontalSize : Int?
-    let imageVerticalSize : Int?
-    let fullProductHorizontalSize : Int?
-    let fullProductVerticalSize : Int?
-    let sizeUnits : String?
-    let priceGBP : Int?
-    let priceUSD : Int?
-    let recommendedHorizontalResolution : Int?
-    let recommendedVerticalResolution : Int?
+    public let name : String?
+    public let description : String?
+    public let imageHorizontalSize : Int?
+    public let imageVerticalSize : Int?
+    public let fullProductHorizontalSize : Int?
+    public let fullProductVerticalSize : Int?
+    public let sizeUnits : String?
+    public let priceGBP : Int?
+    public let priceUSD : Int?
+    public let recommendedHorizontalResolution : Int?
+    public let recommendedVerticalResolution : Int?
 
     
     
-    init?(json: JSON) {
+    public init?(json: JSON) {
         self.name = "name" <~~ json
         self.description = "description" <~~ json
         self.imageHorizontalSize = "imageHorizontalSize" <~~ json

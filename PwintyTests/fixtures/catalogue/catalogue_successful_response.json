@@ -1,0 +1,29 @@
+{ "country": "United Kingdom",
+    "countryCode": "GB",
+    "qualityLevel" : "Pro",
+    "items" : [{
+               "description" : "10x12 Print",
+               "imageHorizontalSize": 10,
+               "imageVerticalSize": 12,
+               "fullProductHorizontalSize": 10,
+               "fullProductVerticalSize": 12,
+               "name": "10x12",
+               "priceGBP": 150,
+               "priceUSD": 350,
+               "recommendedHorizontalResolution" : 1500,
+               "recommendedVerticalResolution" : 1800,
+               "sizeUnits": "inches",
+               "shippingBand" : "Prints",
+               "attributes" : [{
+                               "name" : "finish",
+                               "validValues" : ["matte","glossy"]
+                               }]
+               }],
+    "shippingRates" : [{
+                       "band" : "Canvas",
+                       "description": "Canvas tracked- UPS",
+                       "isTracked": true,
+                       "priceGBP": 700,
+                       "priceUSD": 1100
+                       }]
+}

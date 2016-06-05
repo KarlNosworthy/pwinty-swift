@@ -1,0 +1,7 @@
+{ "country": null,
+  "countryCode": null,
+  "qualityLevel" : null,
+  "items" : null,
+  "shippingRates" : null,
+  "errorMessage" : "Specificed country or qualityLevel was not found"
+}
