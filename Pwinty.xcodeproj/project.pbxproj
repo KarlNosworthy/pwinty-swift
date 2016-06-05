@@ -10,6 +10,7 @@
 		A139AAFE56E9A38ACD2BA7E2 /* Pods_Pwinty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9739C668166EBDC77770CE0A /* Pods_Pwinty.framework */; };
 		C3060CCFE74CA2909A081FB0 /* Pods_Pwinty_PwintyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFAB8A698F72A5601E7B0BCB /* Pods_Pwinty_PwintyTests.framework */; };
 		CB3707371C95CB5600314577 /* PwintyOrderIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3707361C95CB5600314577 /* PwintyOrderIssue.swift */; };
+		CB3C322A1D0425F400B08EE8 /* PwintyCountryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3C32291D0425F400B08EE8 /* PwintyCountryTests.swift */; };
 		CB4DD2321D017377008E26AD /* fixtures in Resources */ = {isa = PBXBuildFile; fileRef = CB4DD2311D017377008E26AD /* fixtures */; };
 		CB6A9B921C917A22003BC3A3 /* PwintyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B911C917A22003BC3A3 /* PwintyClient.swift */; };
 		CB6A9B941C917A63003BC3A3 /* PwintyOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A9B931C917A63003BC3A3 /* PwintyOrder.swift */; };
@@ -57,6 +58,7 @@
 		CB3707361C95CB5600314577 /* PwintyOrderIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwintyOrderIssue.swift; sourceTree = "<group>"; };
 		CB3BBA8A1CA03853003CA6C9 /* pwinty-tvos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pwinty-tvos.h"; sourceTree = "<group>"; };
 		CB3BBA8C1CA03853003CA6C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB3C32291D0425F400B08EE8 /* PwintyCountryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PwintyCountryTests.swift; path = PwintyTests/PwintyCountryTests.swift; sourceTree = SOURCE_ROOT; };
 		CB4DD2311D017377008E26AD /* fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fixtures; path = PwintyTests/fixtures; sourceTree = SOURCE_ROOT; };
 		CB6A9B911C917A22003BC3A3 /* PwintyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwintyClient.swift; sourceTree = "<group>"; };
 		CB6A9B931C917A63003BC3A3 /* PwintyOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PwintyOrder.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				CBFEB68B1D02CD6300B0EE81 /* Base */,
 				CB4DD2311D017377008E26AD /* fixtures */,
+				CB3C32291D0425F400B08EE8 /* PwintyCountryTests.swift */,
 				CBFEB6911D02D12A00B0EE81 /* PwintyOrderTests.swift */,
 				CB8755281D00D42000B64F03 /* PwintyPhotoTests.swift */,
 				CBE4EBD51C9162EA0016300F /* PwintyTests.swift */,
@@ -460,6 +463,7 @@
 				CBBF382E1D00E1F2008BC91A /* PwintyPhoto.swift in Sources */,
 				CBFEB6921D02D12A00B0EE81 /* PwintyOrderTests.swift in Sources */,
 				CBFEB6901D02CF2000B0EE81 /* PwintyFixtureTestBase.swift in Sources */,
+				CB3C322A1D0425F400B08EE8 /* PwintyCountryTests.swift in Sources */,
 				CBE4EBD61C9162EA0016300F /* PwintyTests.swift in Sources */,
 				CB8755291D00D42000B64F03 /* PwintyPhotoTests.swift in Sources */,
 			);

@@ -11,15 +11,15 @@ import Gloss
 
 public struct PwintyCountry : Decodable {
     
-    let countryCode : String?
-    let hasProducts : Bool?
-    let name : String?
+    public let countryCode : String?
+    public let hasProducts : Bool?
+    public let name : String?
     
     
     public init?(json: JSON) {
         self.countryCode = "countryCode" <~~ json
-//        self.hasProducts = "hasProducts" <~~ json
-        self.hasProducts = false
+        self.hasProducts = "hasProducts" <~~ json
+//        self.hasProducts = false
         self.name = "name" <~~ json
     }
 }

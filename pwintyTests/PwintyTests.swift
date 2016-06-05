@@ -39,24 +39,6 @@ class PwintyTests: XCTestCase {
         pwinty = nil
     }
     
-    func testGetCountries() {
-        let readyExpectation = expectationWithDescription("ready")
-        
-        pwinty!.getCountries { (error, countries) -> Void in
-            
-            XCTAssertNil(error)
-            XCTAssertNotNil(countries)
-            XCTAssertEqual(243, countries!.count)
-        
-            readyExpectation.fulfill()
-        }
-        
-        waitForExpectationsWithTimeout(15) { error in
-            XCTAssertNil(error, "Error")
-        }
-    }
-    
-    
     func testRequestGBProQualityCatalogue() {
         
         let readyExpectation = expectationWithDescription("ready")

@@ -1,0 +1,9 @@
+[{ "countryCode": "GB",
+   "hasProducts": false,
+   "name": "United Kingdom"
+ },
+ { "countryCode" : "US",
+   "hasProducts": true,
+   "name": "United States of America"
+ }
+]
