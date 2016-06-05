@@ -28,12 +28,38 @@ class PwintyCatalogueTests: PwintyFixtureTestBase {
             XCTAssertNotNil(catalogue)
             XCTAssertEqual(catalogue!.qualityLevel, QualityLevel.Pro)
             XCTAssertEqual(catalogue!.countryCode, "GB")
+            XCTAssertEqual("United Kingdom", catalogue!.country)
+            XCTAssertNotNil(catalogue!.items)
+            XCTAssertEqual(1, catalogue!.items?.count)
+            XCTAssertNotNil(catalogue!.shippingRates)
+            XCTAssertEqual(1, catalogue!.shippingRates?.count)
             
+            // catalogue item
+            let catalogueItem = catalogue!.items![0]
             
+            XCTAssertNotNil(catalogueItem)
+            XCTAssertEqual("10x12", catalogueItem.name)
+            XCTAssertEqual("10x12 Print", catalogueItem.description)
+            XCTAssertEqual(10, catalogueItem.imageHorizontalSize)
+            XCTAssertEqual(12, catalogueItem.imageVerticalSize)
+            XCTAssertEqual(10, catalogueItem.fullProductHorizontalSize)
+            XCTAssertEqual(12, catalogueItem.fullProductVerticalSize)
+            XCTAssertEqual(150, catalogueItem.priceGBP)
+            XCTAssertEqual(350, catalogueItem.priceUSD)
+            XCTAssertEqual(1500, catalogueItem.recommendedHorizontalResolution)
+            XCTAssertEqual(1800, catalogueItem.recommendedVerticalResolution)
+            XCTAssertEqual("inches", catalogueItem.sizeUnits)
+
+            // shipping rate
+            let shippingRate = catalogue!.shippingRates![0]
             
+            XCTAssertNotNil(shippingRate)
+            XCTAssertEqual("Canvas", shippingRate.band!)
+            XCTAssertEqual("Canvas tracked- UPS", shippingRate.description)
+            XCTAssertTrue(shippingRate.isTracked!)
+            XCTAssertEqual(700, shippingRate.priceGBP)
+            XCTAssertEqual(1100, shippingRate.priceUSD)
             
-            
-            //
             readyExpectation.fulfill()
         }
         
